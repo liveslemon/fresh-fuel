@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FreshFuel: fuel your day the fresh way</title>
+<style>
+:root{--bg:#fff;--ink:#1d1033;--card:#f3eaff;--p:#7b2fff;--dp:#3b0a78;--pk:#ff3d8b;--cy:#00838f;--or:#d9560b;--mut:#5b4a78;--gold:#ffd23f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#150a2b;--ink:#f4ecff;--card:#26134d;--mut:#c9b6ea;--cy:#3dd6e6;--or:#ff9a5c;--gold:#ffe180}}
+:root[data-theme="dark"]{--bg:#150a2b;--ink:#f4ecff;--card:#26134d;--mut:#c9b6ea;--cy:#3dd6e6;--or:#ff9a5c;--gold:#ffe180}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Trebuchet MS",Verdana,sans-serif}
+h1,h2,h3{font-family:"Arial Rounded MT Bold","Arial Black",Arial,sans-serif;line-height:1.1;margin:0}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;overflow-x:auto;padding:10px 16px;background:var(--dp)}
+nav a{color:#fff;text-decoration:none;font-weight:bold;font-size:14px;padding:6px 12px;border-radius:99px;white-space:nowrap}
+nav a:hover,nav a:focus-visible{background:var(--pk);outline:none}
+section{padding:56px 20px;max-width:980px;margin:0 auto}
+.hero{background:linear-gradient(135deg,#3b0a78,#7b2fff 60%,#ff3d8b);color:#fff;max-width:none;text-align:left}
+.hero>div{max-width:980px;margin:0 auto}
+.hero h1{font-size:clamp(38px,9vw,72px);max-width:12em}
+.hero p{font-size:19px;max-width:32em;margin:16px 0 24px}
+.big{display:inline-block;font-size:19px;font-weight:bold;border:0;border-radius:99px;padding:14px 28px;background:var(--gold);color:#3b0a78;cursor:pointer;box-shadow:0 8px 20px rgba(18,8,35,.15)}
+.big:hover{background:#fff}
+.secondary{display:inline-block;font-size:17px;font-weight:bold;border:2px solid rgba(255,255,255,.5);background:transparent;color:#fff;border-radius:999px;padding:12px 22px;cursor:pointer;margin-left:12px}
+.secondary:hover{background:rgba(255,255,255,.12)}
+.emo{font-size:42px;letter-spacing:6px;margin-top:28px}
+h2{font-size:clamp(28px,6vw,42px);color:var(--p);margin-bottom:6px}
+.sub{color:var(--mut);margin:0 0 24px}
+.section-head{margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.card{background:var(--card);border-radius:20px;padding:20px;border:0;text-align:left;color:var(--ink);font:inherit}
+button.card{cursor:pointer;min-height:150px;width:100%}
+.card h3{font-size:20px;margin:6px 0}
+.card .e{font-size:36px}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin:18px 0 10px}
+.stat{background:linear-gradient(135deg,#fff,#f7f1ff);border:2px solid rgba(123,47,255,.15);border-radius:20px;padding:22px 18px}
+.stat strong{display:block;font-size:30px;color:var(--p);margin-bottom:6px}
+.stat span{font-weight:bold;color:var(--dp)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:24px}
+.step{background:var(--card);border-radius:20px;padding:20px;position:relative}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--p);color:#fff;font-weight:bold;box-shadow:0 8px 18px rgba(123,47,255,.25)}
+.myth b{color:var(--pk)}
+.myth .fact{display:none}
+.myth.on .fact{display:block}.myth.on .q{display:none}
+.tag{display:inline-block;font-size:13px;font-weight:bold;border-radius:99px;padding:3px 10px;background:var(--cy);color:#fff}
+details{margin-top:8px}summary{cursor:pointer;font-weight:bold;color:var(--p)}
+.q-box{background:var(--card);border-radius:24px;padding:24px}
+.opt{display:block;width:100%;text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--p);border-radius:14px;padding:12px 16px;margin:8px 0;cursor:pointer}
+.opt:hover,.opt:focus-visible{background:var(--p);color:#fff;outline:none}
+.bar{height:10px;background:var(--bg);border-radius:9px;margin-bottom:16px;overflow:hidden}.bar i{display:block;height:100%;background:var(--pk);width:0;transition:width .3s}
+.res h3{font-size:30px;color:var(--pk)}
+.items{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}
+.it{font-size:38px;width:74px;height:74px;border-radius:50%;border:3px solid var(--p);background:var(--bg);cursor:pointer}
+.it.on{background:var(--pk);border-color:var(--pk);transform:scale(1.08)}
+.count{font-size:22px;font-weight:bold}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.badge{padding:8px 14px;border-radius:99px;background:var(--bg);color:var(--mut);font-weight:bold;border:2px dashed var(--mut)}
+.badge.got{background:#ffd23f;color:#3b0a78;border:2px solid #3b0a78}
+blockquote{margin:0}
+.cta-box{background:linear-gradient(135deg,#3b0a78,#7b2fff 55%,#ff3d8b);border-radius:28px;padding:30px 24px;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.cta-box h3{font-size:clamp(24px,4vw,36px)}
+.cta-box p{margin:8px 0 0;max-width:32em;color:#f1e6ff}
+footer{background:var(--dp);color:#e3d0ff;text-align:center;padding:24px 20px;font-size:14px}
+:focus-visible{outline:3px solid var(--pk);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style></head><body>
+<nav><a href="#overview">Overview</a><a href="#why">Why it matters</a><a href="#quiz">Quiz</a><a href="#recipes">Recipes</a><a href="#challenge">5-a-day</a><a href="#crew">Crew</a></nav>
+
+<section class="hero" id="overview"><div>
+<h1>Fuel your day the fresh way</h1>
+<p>Fruits and veg do more than fill your plate — they help you stay energized, focused, and confident through school, sport, and everyday life. FreshFuel makes healthy habits simple, affordable, and fun.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+<button class="big" onclick="document.getElementById('quiz').scrollIntoView()">Take the 1-minute quiz</button>
+<button class="secondary" onclick="document.getElementById('challenge').scrollIntoView()">Join the challenge</button>
+</div>
+<div class="emo" aria-hidden="true">🍉🥕🍊🥬🍌</div></div></section>
+
+<section id="why"><div class="section-head"><h2>Why FreshFuel matters</h2><p class="sub">Small, everyday choices can make a big difference to how students feel, learn, and perform.</p></div>
+<div class="stat-grid">
+<div class="stat"><strong>5+</strong><span>fruit or veg a day</span></div>
+<div class="stat"><strong>1 min</strong><span>to check your habit</span></div>
+<div class="stat"><strong>100%</strong><span>more fun than skipping it</span></div>
+<div class="stat"><strong>Easy</strong><span>cheap, local, and tasty</span></div>
+</div>
+<div class="steps">
+<div class="step"><div class="step-num">1</div><h3>Pick</h3><p>Choose one fruit or veg you already like — orange, banana, tomato, ugu, carrot, or watermelon.</p></div>
+<div class="step"><div class="step-num">2</div><h3>Swap</h3><p>Replace one sugary snack or drink with a fresher option when you can.</p></div>
+<div class="step"><div class="step-num">3</div><h3>Track</h3><p>Build the habit slowly and aim for 5 servings a day without stress.</p></div>
+</div></section>
+
+<section id="quiz"><h2>How fresh is your day?</h2><p class="sub">Five quick questions. No wrong answers, just a better idea of where you are right now.</p>
+<div class="q-box"><div class="bar"><i id="qb"></i></div><div id="qa"></div></div></section>
+
+<section id="myths"><h2>Myth or fact?</h2><p class="sub">Tap a card to see the truth behind common food myths.</p><div class="grid" id="mg"></div></section>
+
+<section id="recipes"><h2>Quick, tasty, local</h2><p class="sub">Affordable meals and snacks that fit real student life.</p><div class="grid" id="rg"></div></section>
+
+<section id="challenge"><h2>5-a-day challenge</h2><p class="sub">Tap each fruit or veg you eat today. Aim for 5 and build momentum.</p>
+<div class="q-box"><div class="items" id="its"></div>
+<div class="count" id="cnt"></div><div id="msg" class="sub" style="margin:6px 0"></div>
+<div class="badges" id="bg"></div><p class="sub" id="st" style="margin-top:14px"></p></div></section>
+
+<section id="crew"><h2>The FreshFuel crew</h2><p class="sub">Real teens, real habits. These are sample voices for the campaign idea.</p>
+<div class="grid">
+<blockquote class="card"><div class="e">🍊</div><p>“I take an orange to football practice. It keeps me going without the sugar crash.”</p><span class="tag">Femi, 16</span></blockquote>
+<blockquote class="card"><div class="e">🥬</div><p>“Ugu in my stew every week. My skin and energy both improved and it tastes great.”</p><span class="tag">Tola, 17</span></blockquote>
+<blockquote class="card"><div class="e">🍉</div><p>“Me and my roommates do a fruit salad Sunday. It’s a whole vibe and it keeps us full.”</p><span class="tag">Chidi, 18</span></blockquote>
+</div></section>
+
+<section>
+<div class="cta-box">
+<div>
+<h3>Start small. Eat fresh. Feel better.</h3>
+<p>FreshFuel is about making healthy choices feel easy, realistic, and rewarding — not strict or boring.</p>
+</div>
+<button class="big" onclick="document.getElementById('challenge').scrollIntoView()">Start today</button>
+</div>
+</section>
+
+<footer>FreshFuel · made by Group ___ · sample content for demonstration</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+// Quiz
+const Q=[["How many fruits or veg did you eat yesterday?","0 to 1","2 to 3","4 or more"],["Does what you eat today affect how you feel today?","Not really","A bit","Yes, a lot"],["Do you add fruit or veg to your snacks?","Never","Sometimes","Often"],["Could you make a simple veg dish yourself?","No idea","Maybe","Yes"],["Do people around you eat fruit and veg?","Rarely","Sometimes","Often"]];
+const R=[["Fresh Starter 🌱","Great news: small swaps count. Try one recipe below and start the 5-a-day challenge."],["Rising Fresh 🚀","You're on your way. Add one more fruit or veg a day and keep your streak going."],["Fruit Boss 🏆","You're crushing it. Share your habits with the crew and inspire a friend."]];
+let qi=0,sc=0;
+function showQ(){const a=$("qa");$("qb").style.width=(qi/Q.length*100)+"%";
+ if(qi>=Q.length){const r=R[sc<=3?0:sc<=7?1:2];a.className="res";a.innerHTML="<p>Your score: "+sc+" out of 10</p><h3>"+r[0]+"</h3><p>"+r[1]+"</p><button class='big' style='background:var(--p);color:#fff' id='rs'>Retake quiz</button>";$("rs").onclick=()=>{qi=0;sc=0;a.className="";showQ()};return}
+ a.innerHTML="<h3>"+Q[qi][0]+"</h3>"+Q[qi].slice(1).map((t,i)=>"<button class='opt' data-s='"+i+"'>"+t+"</button>").join("");
+ a.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{sc+=+b.dataset.s;qi++;showQ()})}
+showQ();
+// Myths
+const M=[["🍟","I'm young, I can eat anything.","Teens who skip fruit and veg tire easily and gain weight. Habits start now."],["💸","Fruit and veg are too expensive.","Local, seasonal ones like oranges, pawpaw, tomatoes and ugu are often the cheapest food around."],["😴","It won't change how I feel.","Vitamins and fibre help steady energy, focus in class and better skin."],["🍬","Sugary drinks count as fruit.","Juice drinks are mostly sugar. Whole fruit keeps the fibre and the goodness."]];
+$("mg").innerHTML=M.map(m=>"<button class='card myth'><div class='e'>"+m[0]+"</div><div class='q'><b>Myth:</b> "+m[1]+"</div><div class='fact'><b>Fact:</b> "+m[2]+"</div></button>").join("");
+$("mg").querySelectorAll(".myth").forEach(c=>c.onclick=()=>c.classList.toggle("on"));
+// Recipes
+const Rc=[["🍉","Fruit salad cup","5 min · low cost","Chop watermelon, pineapple, banana and orange. Add a spoon of yoghurt.","Snack"],["🥚","Efo riro and egg","30 min · low cost","Cook spinach in tomato and pepper base, add boiled egg. Serve with rice.","Barriers fixed: taste"],["🥜","Garden egg and groundnut","5 min · low cost","Slice garden egg and eat with roasted groundnut. Crunchy and filling.","Snack"],["🥒","Tomato-cucumber salad","10 min · low cost","Slice, add onion, a little oil and salt. Great with beans or rice.","Side dish"],["🍌","Banana oats bowl","5 min · low cost","Soak oats in hot water, top with sliced banana.","Breakfast"],["🫘","Moi moi with veg","45 min · medium","Blend beans with pepper and chopped ugu or carrot, steam till firm.","Meal prep"]];
+$("rg").innerHTML=Rc.map(r=>"<div class='card'><div class='e'>"+r[0]+"</div><h3>"+r[1]+"</h3><span class='tag'>"+r[4]+"</span><p class='sub' style='margin:8px 0 0'>"+r[2]+"</p><details><summary>How to make it</summary><p>"+r[3]+"</p></details></div>").join("");
+// Challenge
+const I=["🍎","🍌","🍊","🥕","🥬","🍅","🥒","🍉"],B=[[1,"Veggie Rookie"],[3,"Fresh Fighter"],[5,"Fruit Boss"]];
+const today=new Date().toISOString().slice(0,10);let store={};
+try{store=JSON.parse(localStorage.getItem("ff")||"{}")}catch(e){}
+let sel=store[today]||[];
+function save(){store[today]=sel;try{localStorage.setItem("ff",JSON.stringify(store))}catch(e){}}
+function streak(){let n=0,d=new Date();for(;;){const k=d.toISOString().slice(0,10);if((store[k]||[]).length>=5)n++;else if(k!==today)break;d.setDate(d.getDate()-1);if(n>400)break}return n}
+function draw(){const c=sel.length;
+ $("its").innerHTML=I.map((e,i)=>"<button class='it"+(sel.includes(i)?" on":"")+"' aria-pressed='"+sel.includes(i)+"' data-i='"+i+"'>"+e+"</button>").join("");
+ $("its").querySelectorAll(".it").forEach(b=>b.onclick=()=>{const i=+b.dataset.i;sel=sel.includes(i)?sel.filter(x=>x!==i):[...sel,i];save();draw()});
+ $("cnt").textContent=c+" of 5 today";
+ $("msg").textContent=c>=5?"Goal smashed! You're a Fruit Boss today 🎉":c>0?(5-c)+" more to go. You've got this.":"Tap your first one to start.";
+ $("bg").innerHTML=B.map(b=>"<span class='badge"+(c>=b[0]?" got":"")+"'>"+(c>=b[0]?"★ ":"")+b[1]+"</span>").join("");
+ const s=streak();$("st").textContent=s?"Streak: "+s+" day"+(s>1?"s":"")+" of 5+ 🔥":"Hit 5 today to start a streak."}
+draw();
+</script></body></html>
